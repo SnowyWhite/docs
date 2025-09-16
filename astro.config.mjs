@@ -9,17 +9,15 @@ export default defineConfig({
 			title: 'IW4x Docs',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/iw4x/docs' }],
 			sidebar: [
+				{ label: 'Welcome 👋', slug: '' },
+				{ label: 'Changelog', slug: 'guides/changelog' },
 				{
-					label: 'Guides',
+					label: 'Installing IW4x',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Installing on Windows', slug: 'guides/install-windows' },
+						{ label: 'Installing on Linux', slug: 'guides/install-linux' },
 					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+				}
 			],
 		}),
 	],
