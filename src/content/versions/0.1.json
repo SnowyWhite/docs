@@ -1,0 +1,10 @@
+{
+  "sidebar": [
+    {
+      "label": "Getting Started",
+      "autogenerate": {
+        "directory": "install"
+      }
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 // @ts-check
 import { defineConfig, sharpImageService } from "astro/config";
 import starlight from '@astrojs/starlight';
-import starlightLinksValidator from 'starlight-links-validator'
-import starlightImageZoom from 'starlight-image-zoom'
 import starlightAutoDrafts from 'starlight-auto-drafts'
+import starlightImageZoom from 'starlight-image-zoom'
+import starlightLinksValidator from 'starlight-links-validator'
+import starlightVersions from 'starlight-versions'
 
 // https://astro.build/config
 export default defineConfig({
@@ -38,9 +39,12 @@ export default defineConfig({
 				{ label: 'Getting Started', autogenerate: { directory: 'install' } }
 			],
       plugins: [
-        starlightLinksValidator(),
+        starlightAutoDrafts(),
         starlightImageZoom(),
-        starlightAutoDrafts()
+        starlightLinksValidator(),
+        starlightVersions({
+          versions: [{ slug: '0.1' }],
+        }),
       ],
 		}),
 	],
