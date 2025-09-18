@@ -11,8 +11,8 @@ export default defineConfig({
 	output: 'static',
 	site: 'https://docs.iw4x.io',
 	image: {
-    service: sharpImageService({ limitInputPixels: false }),
-  },
+		service: sharpImageService({ limitInputPixels: false }),
+	},
 	integrations: [
 		starlight({
 			title: 'IW4x Docs',
@@ -22,7 +22,7 @@ export default defineConfig({
 				{
 					icon: 'github',
 					label: 'GitHub',
-					href: 'https://github.com/iw4x/docs'
+					href: 'https://github.com/iw4x'
 				},
 				{
 					icon: 'discord',
@@ -38,14 +38,17 @@ export default defineConfig({
 			sidebar: [
 				{ label: 'Getting Started', autogenerate: { directory: 'install' } }
 			],
-      plugins: [
-        starlightAutoDrafts(),
-        starlightImageZoom(),
-        starlightLinksValidator(),
-        starlightVersions({
-          versions: [{ slug: '0.1' }],
-        }),
-      ],
+			editLink: {
+				baseUrl: 'https://github.com/iw4x/docs/edit/main/'
+			},
+			plugins: [
+				starlightAutoDrafts(),
+				starlightImageZoom(),
+				starlightLinksValidator(),
+				starlightVersions({
+					versions: [{ slug: '0.1' }],
+				}),
+			],
 		}),
 	],
 
