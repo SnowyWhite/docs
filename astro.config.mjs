@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig, sharpImageService } from "astro/config";
 import starlight from '@astrojs/starlight';
+import starlightLinksValidator from 'starlight-links-validator'
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,9 +17,9 @@ export default defineConfig({
 			customCss: [ './src/styles/custom.css' ],
 			social: [
 				{
-					icon: 'github', 
+					icon: 'github',
 					label: 'GitHub',
-					href: 'https://github.com/iw4x/docs' 
+					href: 'https://github.com/iw4x/docs'
 				},
 				{
 					icon: 'discord',
@@ -34,6 +35,9 @@ export default defineConfig({
 			sidebar: [
 				{ label: 'Getting Started', autogenerate: { directory: 'install' } }
 			],
+      plugins: [
+        starlightLinksValidator()
+      ],
 		}),
 	],
 
