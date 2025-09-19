@@ -4,7 +4,6 @@ import starlight from '@astrojs/starlight';
 import starlightAutoDrafts from 'starlight-auto-drafts'
 import starlightImageZoom from 'starlight-image-zoom'
 import starlightLinksValidator from 'starlight-links-validator'
-import starlightVersions from 'starlight-versions'
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,10 +43,7 @@ export default defineConfig({
 			plugins: [
 				starlightAutoDrafts(),
 				starlightImageZoom(),
-				starlightLinksValidator(),
-				starlightVersions({
-					versions: [{ slug: '0.1' }],
-				}),
+				starlightLinksValidator()
 			],
 		}),
 	],
