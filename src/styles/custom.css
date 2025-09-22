@@ -14,7 +14,15 @@
 
     --sl-content-width: 55rem;
 	--sl-text-5xl: 3.5rem;
+	
+	video {
+		width: 100%;
+        height: auto;
+        display: block;
+        border: none;
+    }
 }
+
 /* Light mode colors. */
 :root[data-theme='light'] {
 	--sl-color-accent-low: #c1e2be;
