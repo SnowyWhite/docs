@@ -8,12 +8,19 @@ prev: Manual Installation on Windows
 
 import { Steps } from '@astrojs/starlight/components';
 
-Since the PC version of Modern Warfare 2 was only released on Windows, installing it on Linux is little bit trickier.  
+:::caution
+We strongly **recommend** to use the [IW4x Launcher](https://github.com/iw4x/launcher) described in the [Quickstart Guide](/get-started/quickstart).  
+It's the easiest and most reliable way to install and keep IW4x up to date  
+However, if you prefer to install IW4x manually, you can follow the steps outlined below.  
+**Important**: If you manually install IW4x, you'll need to repeat all of these steps each time a new update is released.
+:::
+
+Since the PC version of Modern Warfare 2 was never released on Linux systems, installing is a little bit trickier.  
 
 Today, two practical ways exist:
 
-- Through **[Proton](https://github.com/ValveSoftware/Proton)**, Steam’s built-in compatibility layer
-- Through a **[custom Wine prefix](https://www.winehq.org/)**, managed by the user
+[**Method 1:**](#1-using-proton) Using **[Proton](https://github.com/ValveSoftware/Proton)**, Steam’s built-in compatibility layer.  
+[**Method 2:**](#2-using-wine-prefix) Using a **[custom Wine prefix](https://www.winehq.org/)**, managed by the user.
 
 Just like on [Windows](/get-started/manual-install/windows-guide/), both approaches require IW4x to be installed in the game directory of MW2.
 

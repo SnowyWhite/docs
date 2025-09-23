@@ -5,29 +5,45 @@ lastUpdated: 2025-23-09
 next: Manual Installation on Linux
 ---
 
-import { Steps, LinkButton } from '@astrojs/starlight/components';
-import { Image } from 'astro:assets';
-import install_folder from '../../../../assets/img/install/find_install_folder.gif';
+import { LinkButton, Steps } from '@astrojs/starlight/components';
+import Video from '../../../../components/Video.astro';
+import find_directory from "../../../../assets/vid/install/find_directory.mp4";
+import download_iw4x from "../../../../assets/vid/install/download_iw4x.mp4";
+import download_rawfiles from "../../../../assets/vid/install/download_rawfiles.mp4";
 
-### 1. Find your Modern Warfare 2 installation
+:::caution
+We strongly **recommend** to use the [IW4x Launcher](https://github.com/iw4x/launcher) described in the [Quickstart Guide](/get-started/quickstart).  
+It's the easiest and most reliable way to install and keep IW4x up to date  
+However, if you prefer to install IW4x manually, you can follow the steps outlined below.  
+**Important**: If you manually install IW4x, you'll need to repeat all of these steps each time a new update is released.
+:::
 
-IW4x needs to be installed in the same directory where Modern Warfare 2 is installed.  
-It's usually in `C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2`.  
-If you have trouble finding it, the easiest way is to open your Steam Library and then:
+## 1. Find Modern Warfare 2 installation
+
+Iw4x needs to be installed in the same directory where *Call of Duty: Modern Warfare 2* is installed.  
+Usually, the path to this directory is:
+
+```cmd
+C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2
+```
+
+If you have trouble to find the install directory, you can use your Steam Library as help:
 
 <Steps>
 
-1. Right-click on **Call of Duty: Modern Warfare 2 (2009) - Multiplayer**
+1. Open Steam and go to your **LIBRARY**
 
-2. Select **Manage > Browse local files**
+2. Right-click on **Call of Duty: Modern Warfare 2 (2009) - Multiplayer**
 
-    ![Find Install Folder](../../../../assets/img/install/find_install_folder.gif)
+3. Select **Manage > Browse local files**
+
+    <Video src={find_directory} />
 
 </Steps>
 
-### 2. Download IW4x
+## 2. Download IW4x
 
-Once you've found your MW2 installation, you can go ahead and download the IW4x DLL:
+Once you've located the Modern Warfare 2 game directory, you can download the latest release version of `iw4x.dll` from the [GitHub](https://github.com/iw4x/iw4x-client) repository and save it to this directory.
 
 <LinkButton
     href="https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll"
@@ -36,26 +52,45 @@ Once you've found your MW2 installation, you can go ahead and download the IW4x 
     iconPlacement="start"
 >Download **iw4x.dll**</LinkButton>
 
-![Download IW4x DLL](../../../../assets/img/install/download_iw4x_dll.gif)
+<Video src={download_iw4x} />
 
-Make sure that your game folder now looks like this:
+## 3. Download Raw Files
 
-![IW4x Client Files Installed](../../../../assets/img/install/installed_iw4x_dll.png)
+The [raw files](https://github.com/iw4x/iw4x-rawfiles) are additional assets like maps, weapons, and scripts that enhance your IW4x experience.  
+Like in the [previous step](#2-download-iw4x), download and save the latest release version into your game directory.
 
-### 3. Download Raw Files
-
-The [raw files](https://github.com/iw4x/iw4x-rawfiles) are additional assets (maps, weapons, scripts. etc.) to make your experience better.  
-Like in the [previous step](#2-download-iw4x), you can simply download the latest release version and save it to your game folder.
+<LinkButton
+    href="https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x.exe"
+    variant="primary"
+    icon="seti:windows"
+    iconPlacement="start"
+>Download **iw4x.exe**</LinkButton>
 
 <LinkButton
     href="https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip"
     variant="primary"
     icon="seti:windows"
     iconPlacement="start"
->Download **IW4x Raw Files**</LinkButton>
+>Download **release.zip**</LinkButton>
 
-The files are compressed in a ZIP archive and need to be extracted first.  
-The easiest way to do so is to select the archive and then:
+You’ll find several more downloads on GitHub, but the most important ones are:
+
+- **iw4x.exe** – A custom version of the original `iw4mp.exe`, designed to load `iw4x.dll` (downloaded in the previous step)
+- **release.zip** – Contains all required extra assets for IW4x
+
+Additional files you may encounter:
+
+- `zonebuilder.exe` – A tool for creating custom assets and mods
+- `update.json` – Used by the launcher for update tracking, can be ignored
+- Several files with the `.iwd` extension (e.g. `iw4x_00.iwd`)
+
+The `.iwd` files contain optional DLC content, including Nuketown from *Call of Duty: Black Ops (2010)* and the classic maps from *Call of Duty: Modern Warfare (2007)*.  
+
+IW4x will work without them, but you can download them too if you want to play on these DLC maps.  
+Just make sure to move them into the `iw4x/` directory, or the game won't recognize them.
+
+The `iw4x/` directory doesn't exist yet, that's because the files in **release.zip** need to be extracted first.  
+The easiest way to do so is to select **release.zip** and then:
 
 <Steps>
 
@@ -65,30 +100,24 @@ The easiest way to do so is to select the archive and then:
 
 3. Click on **Extract**
 
-    Make sure to extract them to the root directory of your game folder (not in an additional `release` sub-folder).
+   Make sure to extract them to the root directory of your game folder (not in an additional `release` sub-folder).
 
-    ![Download IW4x DLL](../../../../assets/img/install/download_iw4x_raw_files.gif)
+4. Delete **release.zip**
 
 </Steps>
 
-Make sure that your game folder looks now looks like this:
+<Video src={download_rawfiles} />
 
-![IW4x Client Files Installed](../../../../assets/img/install/installed_iw4x_raw_files.png)
-
-### 4. Run IW4x
-
-Now you can double-click on `IW4x.exe` and start gaming! 😎🎮
-
-### Install using PowerShell
+## Install using PowerShell
 
 :::note[Info]
-Feel free to skip this part if you have followed all the previous steps or if you are unfamiliar with working in a terminal.
-This is just an alternative way for those who are experienced with PowerShell.
+You can skip this section if you've already completed the previous steps, or if you're unfamiliar with the terminal.  
+The instructions below simply show how to perform the same steps using PowerShell.
 :::
 
 <Steps>
 
-1. **`cd` into the [game directory](#1-find-your-modern-warfare-2-installation)**
+1. **`cd` into the [game directory](#1-find-modern-warfare-2-installation)**
 
    ```ps
    cd "C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2"
@@ -100,19 +129,25 @@ This is just an alternative way for those who are experienced with PowerShell.
    Invoke-WebRequest -Uri https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll -OutFile iw4x.dll
    ```
 
-3. **Download `raw files`**
+3. **Download `iw4x.exe`**
+
+   ```ps
+   Invoke-WebRequest -Uri https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x.exe -OutFile iw4x.exe
+   ```
+
+4. **Download `release.zip`**
 
    ```ps
    Invoke-WebRequest -Uri https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip -OutFile release.zip
    ```
 
-4. **Extract archive**
+5. **Extract `release.zip`**
 
    ```ps
    Expand-Archive release.zip -DestinationPath "C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2"
    ```
 
-5. **Delete downloaded archive**
+6. **Delete `release.zip`**
 
    ```ps
    Remove-Item release.zip
