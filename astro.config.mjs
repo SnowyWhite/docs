@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, sharpImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import starlight from '@astrojs/starlight';
 import starlightAutoDrafts from 'starlight-auto-drafts'
 import starlightImageZoom from 'starlight-image-zoom'
@@ -11,32 +11,12 @@ export default defineConfig({
   output: 'static',
   site: 'https://docs.iw4x.io',
 
-  image: {
-    service: sharpImageService({ limitInputPixels: false }),
-  },
-
   integrations: [
     starlight({
-      title: 'IW4x Docs',
+      title: 'Docs',
       favicon: '/favicon.svg',
+      logo: { src: './src/assets/logo.svg' },
       defaultLocale: 'root',
-
-      // Internationalization
-      //
-      locales: {
-        root: {
-          label: 'English',
-          lang: 'en',
-        },
-        ru: {
-          label: 'Русский',
-          lang: 'ru',
-        },
-      },
-
-      // Styling
-      //
-      customCss: ['./src/styles/custom.css'],
 
       // Navigation
       //
@@ -67,7 +47,40 @@ export default defineConfig({
             },
           ],
         },
+        {
+          label: 'Guides',
+          autogenerate: { directory: 'guides' },
+        },
+        {
+          label: 'Modding',
+          autogenerate: { directory: 'modding' },
+        },
+        {
+          label: 'Server Hosting',
+          autogenerate: { directory: 'hosting' },
+        },
+        {
+          label: 'Other',
+          autogenerate: { directory: 'other' },
+        }
       ],
+
+      // Internationalization
+      //
+      locales: {
+        root: {
+          label: 'English',
+          lang: 'en',
+        },
+        ru: {
+          label: 'Русский',
+          lang: 'ru',
+        },
+      },
+
+      // Styling
+      //
+      customCss: ['./src/styles/custom.css'],
 
       // Git integration
       //
@@ -98,8 +111,8 @@ export default defineConfig({
       // Plugins
       //
       plugins: [
-        starlightAutoDrafts(),
         starlightImageZoom(),
+        starlightAutoDrafts(),
         starlightLinksValidator(),
       ],
     }),

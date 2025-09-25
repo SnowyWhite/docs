@@ -126,25 +126,25 @@ The instructions below simply show how to perform the same steps using PowerShel
 2. **Download `iw4x.dll`**
 
    ```ps
-   Invoke-WebRequest -Uri https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll -OutFile iw4x.dll
+   Start-BitsTransfer -source https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll
    ```
 
 3. **Download `iw4x.exe`**
 
    ```ps
-   Invoke-WebRequest -Uri https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x.exe -OutFile iw4x.exe
+   Start-BitsTransfer -source https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x.exe
    ```
 
 4. **Download `release.zip`**
 
    ```ps
-   Invoke-WebRequest -Uri https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip -OutFile release.zip
+   Start-BitsTransfer -source https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip
    ```
 
 5. **Extract `release.zip`**
 
    ```ps
-   Expand-Archive release.zip -DestinationPath "C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2"
+   Expand-Archive release.zip -DestinationPath .
    ```
 
 6. **Delete `release.zip`**
@@ -157,8 +157,10 @@ The instructions below simply show how to perform the same steps using PowerShel
 
 ## Need more Help?
 
-If you run into any issue with IW4x or while following these guide, we are happy to help you out on our [Discord server](https://discord.com/invite/pV2qJscTXf)!
-
 <center>
-[![Discord Server](../../../../assets/img/common/discord.png)](https://discord.com/invite/pV2qJscTXf)
+
+  If you run into any issue while following these guide, we are happy to help you out on our [Discord server](https://discord.com/invite/pV2qJscTXf)!
+  
+  [![Discord Server](../../../../assets/img/common/discord.png)](https://discord.com/invite/pV2qJscTXf)
+
 </center>
