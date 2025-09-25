@@ -1,0 +1,17 @@
+---
+import Default from "@astrojs/starlight/components/Footer.astro";
+const invitation = "https://discord.com/invite/pV2qJscTXf";
+const banner = "/src/assets/img/common/discord.png";
+---
+
+<Default />
+
+<div class="sl-markdown-content">
+  <center>
+    <p>
+      If you run into any issue while following these guide, we are happy to
+      help you out on our <a href=`${invitation}`>Discord server</a>!
+    </p>
+    <p><a href=`${invitation}`><img src=`${banner}` alt="Discord Invite Link" /></a></p>
+  </center>
+</div>

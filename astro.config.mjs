@@ -108,6 +108,12 @@ export default defineConfig({
         },
       ],
 
+      // Custom footer
+      //
+      components: {
+        Footer: './src/components/Footer.astro',
+      },
+
       // Plugins
       //
       plugins: [
