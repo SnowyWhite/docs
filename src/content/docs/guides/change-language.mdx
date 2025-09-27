@@ -1,0 +1,117 @@
+---
+title: Changing the Language
+description: Change the Lanuage of IW4x
+lastUpdated: 2025-27-09
+---
+
+import { FileTree, Steps } from '@astrojs/starlight/components';
+import Video from '../../../components/Video.astro';
+import change_language from "../../../assets/vid/language/change_language.mp4";
+import different_install_location from "../../../assets/vid/language/different_install_location.mp4";
+
+:::danger[Important]
+
+If your version of the game has a [region lock](https://help.steampowered.com/en/faqs/view/58D3-B80D-2943-3CC6), you won't be able to change the language!
+
+:::
+
+## Change Steam Settings
+
+If IW4x is installed in the **same** directory as your Steam version, you only need to follow the steps below.  
+If it's installed in a **different** directory, please also refer to the additional steps further below.
+
+<Steps>
+
+1. Open Steam and go to your **LIBRARY**
+
+2. Right-click on **Call of Duty: Modern Warfare 2 (2009) - Multiplayer**
+
+3. Select **Properties...**
+
+4. In the **General** tab, find the **Language** section
+
+5. Click on the drop-down menu and select your desired language
+
+</Steps>
+
+After changing the language, Steam will download the necessary files for the chosen option.  
+Once the download is complete, you can launch IW4x and enjoy the game in your preferred setting!
+
+<Video src={change_language} />
+
+:::caution
+
+Please note that downloading new language files can take a while, depending on your internet connection.  
+The video above has been sped up for demonstration purposes.
+
+:::
+
+## Different Install Location
+
+If IW4x is installed separately from your Steam version, you'll need to manually copy the language files.  
+Refer to the [section above](#change-steam-settings) for instructions on how to acquire them.
+
+### Files to Copy
+
+Make sure to copy the following files and folders from your Steam installation:
+
+- The file `localization.txt`
+- The folder `main/video/`
+- The folder `zone/<language>/` (e.g., `zone/russian/` for Russian)
+- All files named `localized_<language>_iwXX.iwd` in the `main/` folder (e.g., `localized_russian_iw00.iwd` for Russian)
+
+#### File Structure Overview
+
+<FileTree>
+- `Call of Duty: Modern Warfare 2`
+  - main
+    - **video**
+      - *.bik all files
+    - **localized_\<language\>_iw00.iwd** 
+    - **..** All `.iwd` files for the selected language
+    - **localized_\<language\>_iwXX.iwd**
+  - zone
+    - **\<language\>/**
+      - *.ff all files
+  - **localization.txt**
+</FileTree>
+
+### Files to Remove
+
+By now, your `main` folder should contain `localized_<language>_iwXX.iwd` files for **both** your newly selected language and the one you were using before.
+If you launch the game at this point, you might see an error like this:
+
+![Couldn't load image 'specialty_new_nonenglish'](../../../assets/img/language/error_message.png)
+
+To fix it, you'll need to take action on the files from the **previous language**.  
+You can choose one of the following:
+
+- **Rename them** - For example, add `.bak` to the end: `localized_english_iw00.iwd` -> `localized_english_iw00.iwd.bak`
+- **Move them** - e.g., create a folder named `english` next to `main` and move the files there
+- **Delete them entirely**
+
+Which method to use is up to you. The key is that the `main` folder only contains files for **one language**.
+
+### Example: Russian Language
+
+If you want to add Russian as a new language, copy the following from your Steam version to the same relative paths in your IW4x folder:
+
+<FileTree>
+- `Call of Duty: Modern Warfare 2`
+  - main
+    - **video/**
+    - **localized_russian_iw00.iwd**
+    - **localized_russian_iw01.iwd**
+    - **localized_russian_iw02.iwd**
+    - **localized_russian_iw03.iwd**
+    - **localized_russian_iw04.iwd**
+    - **localized_russian_iw05.iwd**
+    - **localized_russian_iw06.iwd**
+    - **localized_russian_iw07.iwd**
+    - **localized_russian_iw08.iwd**
+  - zone
+    - **russian/**
+  - **localization.txt**
+</FileTree>
+
+<Video src={different_install_location} />
