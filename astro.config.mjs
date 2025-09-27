@@ -17,6 +17,7 @@ export default defineConfig({
       favicon: '/favicon.svg',
       logo: { src: './src/assets/logo.svg' },
       defaultLocale: 'root',
+      lastUpdated: true,
 
       // Navigation
       //
