@@ -1,0 +1,22 @@
+---
+title: Manual Installation On MacOS
+description: Install IW4x without the Launcher on MacOS
+prev: Manual Installation on Linux
+---
+
+:::caution
+
+We strongly **recommend** to use the [IW4x Launcher](https://github.com/iw4x/launcher) described in the [Quickstart Guide](/get-started/quickstart).  
+It's the easiest and most reliable way to install and keep IW4x up to date  
+However, if you prefer to install IW4x manually, you can follow the steps outlined below.  
+**Important**: If you manually install IW4x, you'll need to repeat all of these steps each time a new update is released.
+
+:::
+
+IW4x on MacOS has a similar installation process as [Linux](/get-started/manual-install/linux-guide), but with the additional complexity that Wine must often be wrapped within a managed runtime such as **[CrossOver](https://www.codeweavers.com/crossover)** or **[WineSkin](https://sourceforge.net/projects/wineskin/)**.  
+
+The installation steps, ensuring the base MW2 files are present, placing `iw4x.dll` and the `raw files` alongside the executable, and then invoking the new binary, remain conceptually identical.
+
+The result is that IW4x on MacOS is less a separate port than a faithful reproduction of the Windows environment, hosted within a compatibility container. While this may appear circuitous, it underscores IW4x's neutrality: the project provides only the essential modifications.  
+
+It is this simplicity that makes IW4x portable across different operating systems, even when those systems themselves were never official targets for Modern Warfare 2.

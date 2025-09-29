@@ -1,0 +1,136 @@
+---
+title: Manual Installation On Linux
+description: Install IW4x without the Launcher on Linux
+next: Manual Installation on MacOS
+prev: Manual Installation on Windows
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+:::caution
+
+We strongly **recommend** to use the [IW4x Launcher](https://github.com/iw4x/launcher) described in the [Quickstart Guide](/get-started/quickstart).  
+It's the easiest and most reliable way to install and keep IW4x up to date  
+However, if you prefer to install IW4x manually, you can follow the steps outlined below.  
+**Important**: If you manually install IW4x, you'll need to repeat all of these steps each time a new update is released.
+
+:::
+
+Since the PC version of Modern Warfare 2 was never released on Linux systems, installing is a little bit trickier.  
+
+Today, two practical ways exist:
+
+[**Method 1:**](#1-using-proton) Using **[Proton](https://github.com/ValveSoftware/Proton)**, Steam's built-in compatibility layer.  
+[**Method 2:**](#2-using-wine-prefix) Using a **[custom Wine prefix](https://www.winehq.org/)**, managed by the user.
+
+Just like on [Windows](/get-started/manual-install/windows-guide/), both approaches require IW4x to be installed in the game directory of MW2.
+
+### 1. Using Proton
+
+Steam now enables Proton for Windows-only titles by default.  
+This means that, once installed through Steam, Modern Warfare 2 is ready to go with no special configuration required.  
+Installing IW4x then only requires downloading and extracting the necessary files into the MW2 Proton directory.
+
+For example, assuming `$STEAMLIBRARY` points to your Steam library, IW4x can be installed with the following commands:
+
+<Steps>
+
+1. **Download `iw4x.dll`**
+
+   ```bash
+   curl -L https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll -o iw4x.dll
+   ```
+
+2. **Download `iw4x.exe`**
+
+   ```bash
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x.exe -o iw4x.exe
+   ```
+
+3. **Download `raw files`**
+
+   ```bash
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip -o release.zip
+   ```
+
+4. **Extract archive**
+
+    ```bash
+    unzip -o release.zip -d "$STEAMLIBRARY/steamapps/common/Call of Duty Modern Warfare 2"
+    ```
+
+5. **Download `iwd files`**
+
+   ```bash
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x_00.iwd -o iw4x/iw4x_00.iwd
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x_01.iwd -o iw4x/iw4x_01.iwd
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x_02.iwd -o iw4x/iw4x_02.iwd
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x_03.iwd -o iw4x/iw4x_03.iwd
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x_04.iwd -o iw4x/iw4x_04.iwd
+   curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x_05.iwd -o iw4x/iw4x_05.iwd
+   ```
+
+</Steps>
+
+From there, launching Modern Warfare 2 through Steam also launches IW4x, and the Proton layer handles all necessary translations in the background.
+
+### 2. Using Wine Prefix
+
+Others prefer not to rely on Proton's managed environment. In that case, a dedicated Wine prefix must be created and configured. The process requires several steps, which are described below:
+
+<Steps>
+
+1. **Create a new prefix**
+
+   ```bash
+   WINEPREFIX=~/.wine-mw2 wineboot
+   ```
+
+2. **Install required runtimes**
+
+   IW4x and Modern Warfare 2 expect a number of Microsoft libraries to be present.  
+   These can be installed with `winetricks`:
+
+   ```bash
+   WINEPREFIX=~/.wine-mw2 winetricks vcrun2019 d3dcompiler_47 dxvk
+   ```
+
+3. **Acquire Modern Warfare 2**
+
+   The game can be installed through Steam running inside that prefix.  
+   Or, alternatively, by retrieving the files directly using [`DepotDownloader`](https://github.com/SteamRE/DepotDownloader):
+
+   ```bash
+   ./DepotDownloader -app 10190 -username <username> -password <password>
+   ```
+
+4. **Add IW4x**
+
+   With the base game in place, the IW4x files can be downloaded into the prefix's game directory:
+
+    ```bash
+    curl -L https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll -o iw4x.dll
+    curl -L https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip -o release.zip
+    unzip -o release.zip -d ~/.wine-mw2/drive_c/Program\ Files/Steam/steamapps/common/Call\ of\ Duty\ Modern\ Warfare\ 2
+    ```
+
+</Steps>
+
+Once the base game is present and the IW4x files downloaded and extracted, we are ready to run the game.  
+All you have to do is invoking Wine explicitly:
+
+```bash title="bash"
+WINEPREFIX=~/.wine-mw2 wine iw4x.exe
+```
+
+Though more involved, this method grants precise control over the runtime environment, which some users may prefer.
+
+---
+
+## Install using POSIX Shell Script
+
+Once of our awesome community members maintains script that automates  installing and updating IW4x on Linux!  
+You can check it out here: https://github.com/kkrruumm/iw4x-updoot  
+Make sure to read through their README for usage instructions and details.
+
+Huge thanks to **@krum** for creating, maintaining and also testing the script on various systems! 💖
