@@ -1,5 +1,5 @@
 ---
-title: Changing the Language
+title: Changing the Language - RU
 description: Change the Lanuage of IW4x
 prev: 
   link: /get-started/quickstart/
@@ -13,90 +13,90 @@ import different_install_location from "../../../assets/vid/language/different_i
 
 :::danger[Important]
 
-If your version of the game has a [region lock](https://help.steampowered.com/en/faqs/view/58D3-B80D-2943-3CC6), you won't be able to change the language!
+Если в вашей версии игры есть [Региональные ограничения в Steam] (https://help.steampowered.com/en/faqs/view/58D3-B80D-2943-3CC6), вы не сможете изменить язык!
 
 :::
 
-## Change Steam Settings
+## Изменить настройки Steam
 
-If IW4x is installed in the **same** directory as your Steam version, you only need to follow the steps below.  
-If it's installed in a **different** directory, please also refer to the additional steps further below.
+Если IW4x установлена в **такую же** директорию, как и ваша версия Steam, вам нужно будет лишь выполнить следующие действия.  
+Если он установлен в **другой** каталог, обратитесь к дополнительным шагам ниже.
 
 <Steps>
 
-1. Open Steam and go to your **LIBRARY**
+1. Откройте Steam и перейдите в библиотеку **LIBRARY**.
 
-2. Right-click on **Call of Duty: Modern Warfare 2 (2009) - Multiplayer**
+2. Щелкните правой кнопкой мыши на **Call of Duty: Modern Warfare 2 (2009) - мультиплеер**
 
-3. Select **Properties...**
+3. Выберите **Свойства...**.
 
-4. In the **General** tab, find the **Language** section
+4. На вкладке **Общие** найдите раздел **Язык**.
 
-5. Click on the drop-down menu and select your desired language
+5. Нажмите на выпадающее меню и выберите нужный язык
 
 </Steps>
 
-After changing the language, Steam will download the necessary files for the chosen option.  
-Once the download is complete, you can launch IW4x and enjoy the game in your preferred setting!
+После смены языка Steam загрузит необходимые файлы для выбранного варианта.  
+После завершения загрузки вы можете запустить IW4x и наслаждаться игрой в удобных для вас настройках!
 
 <Video src={change_language} />
 
 :::caution
 
-Please note that downloading new language files can take a while, depending on your internet connection.  
-The video above has been sped up for demonstration purposes.
+Обратите внимание, что загрузка новых языковых файлов может занять некоторое время, в зависимости от вашего интернет-соединения.  
+Видео, представленное выше, было ускорено в демонстрационных целях.
 
 :::
 
-## Different Install Location
+## Другое место установки
 
-If IW4x is installed separately from your Steam version, you'll need to manually copy the language files.  
-Refer to the [section above](#change-steam-settings) for instructions on how to acquire them.
+Если IW4x установлена отдельно от вашей версии Steam, вам придется вручную скопировать языковые файлы.  
+Инструкции по их получению см. в [разделе выше](#change-steam-settings).
 
-### Files to Copy
+### Файлы для копирования
 
-Make sure to copy the following files and folders from your Steam installation:
+Убедитесь, что вы скопировали следующие файлы и папки из вашей установки Steam:
 
-- The file `localization.txt`
-- The folder `main/video/`
-- The folder `zone/<language>/` (e.g., `zone/russian/` for Russian)
-- All files named `localized_<language>_iw##.iwd` in the `main/` folder (e.g., `localized_russian_iw00.iwd` for Russian)
+- Файл `localization.txt`
+- Папка `main/video/`
+- Папка `zone/<language>/` (e.g., `zone/russian/` for Russian)
+- Все файлы с именем `localized_<язык>_iw##.iwd` в папке `main/` (например, `localized_russian_iw00.iwd` для русского языка)
 
-#### File Structure Overview
+Обзор структуры файлов ####
 
 <FileTree>
 - `Call of Duty: Modern Warfare 2`
   - main
     - **video**
       - *.bik all files
-    - **localized_\<language\>_iw00.iwd** 
-    - **..** All `.iwd` files for the selected language
-    - **localized_\<language\>_iw##.iwd**
+    - **localized_\<язык\>_iw00.iwd** 
+    - **..** All `.iwd` файлы для выбранного языка
+    - **localized_\<язык\>_iw##.iwd**
   - zone
-    - **\<language\>/**
-      - *.ff all files
+    - **\<язык\>/**
+      - *.ff все файлы
   - **localization.txt**
 </FileTree>
 
-### Files to Remove
+### Файлы для удаления
 
-By now, your `main` folder should contain `localized_<language>_iw##.iwd` files for **both** your newly selected language and the one you were using before.
-If you launch the game at this point, you might see an error like this:
+Теперь в вашей папке `main` находятся файлы `localized_<язык>_iw##.iwd` как для **вновь выбранного языка, так и для того, который вы использовали ранее.
+Если вы запустите игру, вы увидите ошибку, подобную этой:
 
 ![Couldn't load image 'specialty_new_nonenglish'](../../../assets/img/language/error_message.png)
 
-To fix it, you'll need to take action on the files from the **previous language**.  
-You can choose one of the following:
+Чтобы исправить это, вам нужно будет выполнить действия с файлами из **предыдущего языка**.  
+Вы можете выбрать один из следующих вариантов:
 
-- **Rename them** - For example, add `.bak` to the end: `localized_english_iw00.iwd` -> `localized_english_iw00.iwd.bak`
-- **Move them** - e.g., create a folder named `english` next to `main` and move the files there
-- **Delete them entirely**
+- **Переименуйте их** - Например, добавьте `.bak` в конец: `localized_english_iw00.iwd` -> `localized_english_iw00.iwd.bak`
+- **Переместите их** - например, создайте папку `english` рядом с `main` и переместите туда файлы.
+- **Удалите их полностью**.
 
-Which method to use is up to you. The key is that the `main` folder only contains files for **one language**.
+Какой метод использовать - решать вам. Главное, чтобы папка `main` содержала файлы только для **одного языка**.
 
-### Example: Russian Language
+### Пример: Русский язык
 
-If you want to add Russian as a new language, copy the following from your Steam version to the same relative paths in your IW4x folder:
+Если вы хотите добавить русский язык в качестве нового языка, скопируйте следующие файлы из вашей версии Steam в папку IW4x по тем же относительным путям:
 
 <FileTree>
 - `Call of Duty: Modern Warfare 2`

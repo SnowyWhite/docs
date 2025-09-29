@@ -12,149 +12,149 @@ import download_rawfiles from "../../../../assets/vid/install/download_rawfiles.
 
 :::caution
 
-We strongly **recommend** to use the [IW4x Launcher](https://github.com/iw4x/launcher) described in the [Quickstart Guide](/get-started/quickstart).  
-It's the easiest and most reliable way to install and keep IW4x up to date  
-However, if you prefer to install IW4x manually, you can follow the steps outlined below.  
-**Important**: If you manually install IW4x, you'll need to repeat all of these steps each time a new update is released.
+Мы настоятельно **рекомендуем** использовать [IW4x Launcher](https://github.com/iw4x/launcher), из [Quickstart Guide](/get-started/quickstart).  
+Это самый простой и надежный способ установить и поддерживать IW4x в актуальном состоянии.  
+Однако если вы предпочитаете устанавливать IW4x вручную, вы можете выполнить следующие шаги.  
+**Важно**: Если вы устанавливаете IW4x вручную, вам придется повторять все эти шаги каждый раз, когда выходит новое обновление.
 
 :::
 
-## 1. Find Modern Warfare 2 installation
+## 1. Найдите папку с установленной игрой Modern Warfare 2
 
-Iw4x needs to be installed in the same directory where *Call of Duty: Modern Warfare 2* is installed.  
-Usually, the path to this directory is:
+Iw4x должен быть установлен в тот же каталог, в котором находится игра *Call of Duty: Modern Warfare 2*.  
+Обычно путь к этому каталогу следующий:
 
 ```cmd
 C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2
 ```
 
-If you have trouble to find the install directory, you can use your Steam Library as help:
+Если у вас возникают проблемы с поиском каталога установки, вы можете воспользоваться своей библиотекой Steam в качестве помощи:
 
 <Steps>
 
-1. Open Steam and go to your **LIBRARY**
+1. Откройте Steam и перейдите в свою библиотеу **LIBRARY**
 
-2. Right-click on **Call of Duty: Modern Warfare 2 (2009) - Multiplayer**
+2. Щелкните правой кнопкой мыши на игре **Call of Duty: Modern Warfare 2 (2009) - Мультиплеер**
 
-3. Select **Manage > Browse local files**
+3. Выберите **Управление > Просмотр локальных файлов**
 
     <Video src={find_directory} />
 
 </Steps>
 
-## 2. Download IW4x
+## 2. Скачайте IW4x
 
-Once you've located the Modern Warfare 2 game directory, you can download the latest release version of `iw4x.dll` from the [GitHub](https://github.com/iw4x/iw4x-client) repository and save it to this directory.
+Как только вы найдете каталог с игрой Modern Warfare 2, вы можете загрузить последнюю версию "iw4x.dll` из репозитория [GitHub](https://github.com/iw4x/iw4x-client) и сохранить ее в этом каталоге.
 
 <LinkButton
     href="https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll"
     variant="primary"
     icon="seti:windows"
     iconPlacement="start"
->Download **iw4x.dll**</LinkButton>
+>Скачать **iw4x.dll**</LinkButton>
 
 <Video src={download_iw4x} />
 
-## 3. Download Raw Files
+## 3. Скачайте Raw файлы
 
-The [raw files](https://github.com/iw4x/iw4x-rawfiles) are additional assets like maps, weapons, and scripts that enhance your IW4x experience.  
-Like in the [previous step](#2-download-iw4x), download and save the latest release version into your game directory.
+[Raw-файлы](https://github.com/iw4x/iw4x-rawfiles) - это дополнительные ресурсы, такие как карты, оружие и скрипты, которые улучшат ваш опыт работы с IW4x.  
+Как и на [предыдущем шаге](#2-download-iw4x), загрузите и сохраните последнюю версию Raw-файлов в каталог вашей игры.
 
 <LinkButton
     href="https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x.exe"
     variant="primary"
     icon="seti:windows"
     iconPlacement="start"
->Download **iw4x.exe**</LinkButton>
+>Скачайте **iw4x.exe**</LinkButton>
 
 <LinkButton
     href="https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip"
     variant="primary"
     icon="seti:windows"
     iconPlacement="start"
->Download **release.zip**</LinkButton>
+>Скачайте **release.zip**</LinkButton>
 
-You'll find several more downloads on GitHub, but the most important ones are:
+На GitHub вы увидите еще несколько загрузок, но нас интересуют:
 
-- **iw4x.exe** - A custom version of the original `iw4mp.exe`, designed to load `iw4x.dll` (downloaded in the previous step)
-- **release.zip** - Contains all required extra assets for IW4x
+- **iw4x.exe** - Пользовательская версия оригинального `iw4mp.exe", предназначенная для запуска `iw4x.dll" (скачено на предыдущем шаге).
+- **release.zip ** - Содержит все необходимые дополнительные ресурсы для IW4x
 
-Additional files you may encounter:
+Дополнительные файлы, с которыми вы можете столкнуться:
 
-- `zonebuilder.exe` - A tool for creating custom assets and mods
-- `update.json` - Used by the launcher for update tracking, can be ignored
-- Several files with the `.iwd` extension (e.g. `iw4x_00.iwd`)
+- `zonebuilder.exe` - Инструмент для создания пользовательских ресурсов и модов
+- "update.json" - Используется лаунчером для отслеживания обновлений, может быть проигнорирован
+- Несколько файлов с расширением `.iwd` (например, `iw4x_00.iwd`)
 
-The `.iwd` files contain optional DLC content, including Nuketown from *Call of Duty: Black Ops (2010)* and the classic maps from *Call of Duty: Modern Warfare (2007)*.  
+Файлы `.iwd` содержат дополнительный контент для DLC, включая Nuketown из *Call of Duty: Black Ops (2010)* и классические карты из *Call of Duty: Modern Warfare (2007)*.  
 
-IW4x will work without them, but you can download them too if you want to play on these DLC maps.  
-Just make sure to move them into the `iw4x/` directory, or the game won't recognize them.
+IW4x будет работать и без них, но вы должны их скачать, если хотите играть на DLC картах.  
+Не забудьте переместить их в каталог "iw4x/", иначе игра их не распознает.
 
-The `iw4x/` directory doesn't exist yet, that's because the files in **release.zip** need to be extracted first.  
-The easiest way to do so is to select **release.zip** and then:
+Каталог `iw4x/` еще не существует, это потому, что сначала необходимо извлечь файлы из **release.zip**.  
+Самый простой способ сделать это - выбрать **release.zip**, а затем:
 
 <Steps>
 
-1. Click on **Compressed Folder Tools**
+1. Правый клик **Открыть с помощью - Проводник**
 
-2. Click on **Extract all**
+2. Нажмите на **Извлечь все**
 
-3. Click on **Extract**
+3. Нажмите на **Извлечь**
 
-   Make sure to extract them to the root directory of your game folder (not in an additional `release` sub-folder).
+Файл release.zip должен быть извлечен в корневой каталог вашей игры папки (не в дополнительную подпадку `Release`, а в корень игры).
 
-4. Delete **release.zip**
+4. Удалите файл **release.zip**
 
 </Steps>
 
 <Video src={download_rawfiles} />
 
-## Install using PowerShell
+## Скачивание и установка с помощью PowerShell
 
 :::note[Info]
-You can skip this section if you've already completed the previous steps, or if you're unfamiliar with the terminal.  
-The instructions below simply show how to perform the same steps using PowerShell.
+Вы можете пропустить этот раздел, если вы уже выполнили предыдущие шаги или если вы не знакомы с терминалом.  
+В приведенных ниже инструкциях просто показано, как выполнить те же действия, но с помощью PowerShell.
 :::
 
 <Steps>
 
-1. **`cd` into the [game directory](#1-find-modern-warfare-2-installation)**
+1. **`переход` в [каталог игры](#1-find-modern-warfare-2-installation)**
 
    ```ps
    cd "C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2"
    ```
 
-2. **Download `iw4x.dll`**
+2. **Загрузка `iw4x.dll`**
 
    ```ps
    Start-BitsTransfer -source https://github.com/iw4x/iw4x-client/releases/latest/download/iw4x.dll
    ```
 
-3. **Download `iw4x.exe`**
+3. **Загрузка `iw4x.exe`**
 
    ```ps
    Start-BitsTransfer -source https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x.exe
    ```
 
-4. **Download `release.zip`**
+4. **Загрузка `release.zip`**
 
    ```ps
    Start-BitsTransfer -source https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/release.zip
    ```
 
-5. **Extract `release.zip`**
+5. **Распаковка `release.zip`**
 
    ```ps
    Expand-Archive release.zip -DestinationPath .
    ```
 
-6. **Delete `release.zip`**
+6. **Удалите `release.zip`**
 
    ```ps
    Remove-Item release.zip
    ```
 
-7. **Download `.iwd files`**
+7. **Загрузка `.iwd files`**
 
    ```ps
    Start-BitsTransfer -source https://github.com/iw4x/iw4x-rawfiles/releases/latest/download/iw4x_00.iwd iw4x
