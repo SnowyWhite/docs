@@ -5,10 +5,10 @@ next: Manual Installation on Linux
 ---
 
 import { LinkButton, Steps } from '@astrojs/starlight/components';
-import Video from '../../../../../components/Video.astro';
-import find_directory from "../../../../../assets/vid/install/find_directory.mp4";
-import download_iw4x from "../../../../../assets/vid/install/download_iw4x.mp4";
-import download_rawfiles from "../../../../../assets/vid/install/download_rawfiles.mp4";
+import Video from '@/components/Video.astro';
+import find_directory from "@/assets/vid/install/find_directory.mp4";
+import download_iw4x from "@/assets/vid/install/download_iw4x.mp4";
+import download_rawfiles from "@/assets/vid/install/download_rawfiles.mp4";
 
 :::caution
 
@@ -38,7 +38,7 @@ C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Modern Warfare 2
 
 3. Выберите **Управление > Просмотр локальных файлов**
 
-    <Video src={find_directory} />
+   <Video src={find_directory} />
 
 </Steps>
 
@@ -101,7 +101,7 @@ IW4x будет работать и без них, но вы должны их �
 
 3. Нажмите на **Извлечь**
 
-Файл release.zip должен быть извлечен в корневой каталог вашей игры папки (не в дополнительную подпадку `Release`, а в корень игры).
+   Файл release.zip должен быть извлечен в корневой каталог вашей игры папки (не в дополнительную подпадку `Release`, а в корень игры).
 
 4. Удалите файл **release.zip**
 
