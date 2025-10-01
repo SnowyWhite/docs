@@ -7,9 +7,9 @@ prev:
 ---
 
 import { FileTree, Steps } from '@astrojs/starlight/components';
-import Video from '../../../components/Video.astro';
-import change_language from "../../../assets/vid/language/change_language.mp4";
-import different_install_location from "../../../assets/vid/language/different_install_location.mp4";
+import Video from '@/components/Video.astro';
+import change_language from "@/assets/vid/language/change_language.mp4";
+import different_install_location from "@/assets/vid/language/different_install_location.mp4";
 
 :::danger[Important]
 
@@ -83,7 +83,7 @@ Make sure to copy the following files and folders from your Steam installation:
 By now, your `main` folder should contain `localized_<language>_iw##.iwd` files for **both** your newly selected language and the one you were using before.
 If you launch the game at this point, you might see an error like this:
 
-![Couldn't load image 'specialty_new_nonenglish'](../../../assets/img/language/error_message.png)
+![Couldn't load image 'specialty_new_nonenglish'](@/assets/img/language/error_message.png)
 
 To fix it, you'll need to take action on the files from the **previous language**.  
 You can choose one of the following:
