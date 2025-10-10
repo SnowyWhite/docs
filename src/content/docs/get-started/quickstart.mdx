@@ -8,6 +8,7 @@ import { FileTree, LinkButton, Tabs, TabItem, Steps } from '@astrojs/starlight/c
 
 import Video from '@/components/Video.astro';
 import find_directory from "@/assets/vid/install/find_directory.mp4";
+import verify_integrity from "@/assets/vid/install/verify_file_integrity.mp4";
 import download_launcher from "@/assets/vid/install/download_launcher.mp4";
 
 ## Prerequisites
@@ -63,6 +64,29 @@ If you have trouble to find the install directory, you can use your Steam Librar
     <Video src={find_directory} />
 
 </Steps>
+
+## Verifying Game Integrity
+
+Before installing IW4x, it's a good idea to verify the integrity of your game files through Steam.  
+This prevents errors such as `ERROR: Could not find zone 'code_pre_gfx_mp.ff'`, when launching IW4x.
+
+<Steps>
+
+1. Open Steam and go to your **LIBRARY**
+
+2. Right-click on **Call of Duty: Modern Warfare 2 (2009) - Multiplayer**
+
+3. Select **Properties...**
+
+4. Select **Installed Files**
+
+5. Click the button **Verify integrity of game files**
+
+    <Video src={verify_integrity} />
+
+</Steps>
+
+Steam will check that all game files are intact and properly installed. If it finds anything missing or corrupted, it will automatically re-download the necessary files.
 
 ## Installing IW4x
 
