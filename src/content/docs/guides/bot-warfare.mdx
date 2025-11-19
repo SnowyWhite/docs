@@ -1,0 +1,151 @@
+---
+title: Bot Warfare
+description: Install and use the Bot Warfare Mod
+prev:
+  link: /get-started/quickstart/
+  label: Quickstart
+---
+
+import { Card, CardGrid, FileTree, LinkButton, Steps } from '@astrojs/starlight/components';
+import Video from '@/components/Video.astro';
+import load_mod from "@/assets/vid/botwarfare/load_mod.mp4";
+import mod_installation from "@/assets/vid/botwarfare/mod_installation.mp4";
+import script_installation from "@/assets/vid/botwarfare/script_installation.mp4";
+
+Bot Warfare adds intelligent, fully customizable bots to IW4x, for both private matches and dedicated servers.  
+This guide will walk you through everything you need to install and configure the mod.
+
+You can download the latest version and source code on [GitHub](https://github.com/ineedbots/iw4_bot_warfare).  
+Huge shoutout to [INeedGames](https://ineedbots.github.io/) for keeping this mod alive! 💖
+
+<LinkButton
+    href="https://github.com/ineedbots/iw4_bot_warfare/releases/latest/download/iw4bw230.zip"
+    variant="primary"
+    icon="download"
+    iconPlacement="start"
+>Download **Bot Warfare**</LinkButton>
+
+## Installing Bot Warfare
+
+There are two ways to install the mod. Each method has its own pros and cons:
+
+<CardGrid>
+    <Card title="Mod Installation" icon="seti:powershell">
+        <ul>
+            <li>Mod must be loaded manually</li>
+            <li>Other players must also have the mod installed</li>
+            <li>Everyone starts at rank 1</li>
+            <li>Progression is specific to this mod</li>
+            <li>Classes are specific to this mod</li>
+        </ul>
+    </Card>
+    <Card title="Script Installation" icon="seti:powershell">
+        <ul>
+            <li>Loads automatically with private matches and dedicated servers</li>
+            <li>No installation required for other players</li>
+            <li>Uses your normal stats and classes</li>
+        </ul>
+    </Card>
+</CardGrid>
+
+### Mod Installation
+
+<Steps>
+    
+    1. Navigate to your **IW4x installation directory**
+    
+    2. **Open** the **mods** folder (create it if it doesn't exist)
+    
+    3. **Extract** the **mp_bots** folder from the downloaded `.zip` archive into the **mods** folder
+
+</Steps> 
+
+<Video src={mod_installation} />
+
+Your folder structure should now look like this:
+
+<FileTree>
+    - `Call of Duty: Modern Warfare 2`
+        - iw4x/
+        - launcher/
+        - main/
+        - miles/
+        - **mods/**
+            - **mp_bots/**
+                - scriptdata/
+                    - waypoints/
+                - z_svr_bots.iwd
+            - ...
+        - players/
+        - userraw/
+        - zone/
+</FileTree>
+
+---
+
+### Script Installation
+
+<Steps>
+    
+    1. Navigate to your **IW4x installation directory**
+
+    2. **Open** the **userraw** folder (create it if it doesn't exist)
+
+    3. **Extract** the **scriptdata** folder and the **z_svr_bots.iwd** file from the downloaded `.zip` archive into **userraw**
+
+</Steps> 
+
+<Video src={script_installation} />
+
+You should now have the following folder structure:
+
+<FileTree>
+    - `Call of Duty: Modern Warfare 2`
+        - iw4x/
+        - launcher/
+        - main/
+        - miles/
+        - mods/
+        - players/
+        - **userraw/**
+            - scriptdata/
+                - waypoints/
+            - z_svr_bots.iwd
+            - ...
+        - zone/
+</FileTree>
+
+## Using Bot Warfare
+
+If you installed it using the [mod version](#mod-installation), you'll need to manually load it from the in-game `Mods` menu.  
+You'll know the mod is active when you see `Mod: mods/mp_bots` in the top-left corner of the main menu:
+
+<Video src={load_mod} />
+
+### Running on a Dedicated Server
+
+Set the `fs_game` dvar to `mods/mp_bots` when launching the server:
+
+```bash
+iw4x.exe -dedicated +fs_game mods/mp_bots
+```
+
+You can customize the bot behavior in your server config.  
+A full list of configurable settings is available in the [Bot Warfare README](https://github.com/ineedbots/iw4_bot_warfare?tab=readme-ov-file#dvars).
+
+### In-Game Menu
+
+In private matches, press `5` (default key for `actionslot 2`) to open the Bot Warfare menu.  
+To change this keybind:
+
+<Steps>
+
+    1. Go to `Options` -> `Controls` -> `Look`
+
+    2. Change the `Look Down` keybinding
+
+        ![mod_key](@/assets/img/botwarfare/mod_key.png)
+    
+</Steps>
+
+Once in a private match, open the menu to spawn bots or tweak the settings.
